@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 .setSmallIcon(R.drawable.notification_icon)
                 .setContentTitle("Health Tracker")
                 .setContentText("time to drink some water")
-                .setStyle(new NotificationCompat.BigTextStyle().bigText("ITS TIME TO DRINK WaTeR"))
+                .setStyle(new NotificationCompat.BigTextStyle().bigText("looks like  its time to drink some water"))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
 
