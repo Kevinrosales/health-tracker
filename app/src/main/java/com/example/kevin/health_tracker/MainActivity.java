@@ -1,10 +1,14 @@
 package com.example.kevin.health_tracker;
 
+import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +17,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.sql.SQLOutput;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
         buttonCounter = findViewById(R.id.counter);
         notification = findViewById(R.id.notification);
         createNotificationChannel();
-
     }
+
     public void addToCounterOnClick(View v) {
         counter++;
         buttonCounter.setText(Integer.toString(counter));
@@ -42,18 +48,24 @@ public class MainActivity extends AppCompatActivity {
         Intent StopwatchIntent = new Intent(this, stopwatch.class);
         startActivity(StopwatchIntent);
     }
-
+// this idea came from (https://stackoverflow.com/questions/9406523/android-want-app-to-perform-tasks-every-second)
     public void sendNotification(View v) {
-        NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.notification_icon)
-                .setContentTitle("Health Tracker")
-                .setContentText("time to drink some water")
-                .setStyle(new NotificationCompat.BigTextStyle().bigText("looks like its time to drink some water"))
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-//        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-//
-//        notificationManager.notify(notificationId++, mBuilder.build());
+        Timer t = new Timer();
+        t.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                NotificationCompat.Builder mBuilder =
+                        new NotificationCompat.Builder(MainActivity.this, CHANNEL_ID)
+                                .setSmallIcon(R.drawable.notification_icon)
+                                .setContentTitle("Health Tracker")
+                                .setContentText("time to drink some water")
+                                .setStyle(new NotificationCompat.BigTextStyle().bigText("looks like its time to drink some water"))
+                                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+                NotificationManagerCompat notificationManager = NotificationManagerCompat.from(MainActivity.this);
+                notificationManager.notify(notificationId++, mBuilder.build());
+            }
+        }, 5000, 5000);
     }
 
 // I got this code from the Android studio Docs (https://developer.android.com/training/notify-user/channels#java)
