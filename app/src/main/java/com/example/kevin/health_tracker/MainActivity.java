@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -36,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         buttonCounter = findViewById(R.id.counter);
         notification = findViewById(R.id.notification);
         createNotificationChannel();
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "exercise").build();
+
     }
 
     public void addToCounterOnClick(View v) {
@@ -47,6 +51,11 @@ public class MainActivity extends AppCompatActivity {
     public void takeMeAwayBreakMeAway(View v) {
         Intent StopwatchIntent = new Intent(this, stopwatch.class);
         startActivity(StopwatchIntent);
+    }
+
+    public void takeMeToSaveExercise(View v) {
+        Intent SaveIntent = new Intent(this, SaveExercise.class);
+        startActivity(SaveIntent);
     }
 // this idea came from (https://stackoverflow.com/questions/9406523/android-want-app-to-perform-tasks-every-second)
     public void sendNotification(View v) {
@@ -85,4 +94,5 @@ public class MainActivity extends AppCompatActivity {
             notificationManager.createNotificationChannel(channel);
         }
     }
+
 }
