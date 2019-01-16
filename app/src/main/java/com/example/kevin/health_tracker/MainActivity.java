@@ -1,15 +1,11 @@
 package com.example.kevin.health_tracker;
 
-import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.arch.persistence.room.Room;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +13,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.sql.SQLOutput;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -28,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     Button notification;
     TextView buttonCounter;
     public int counter=0;
-    private int notificationId=1;
+    private int notificationId=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void takeMeToSaveExercise(View v) {
-        Intent SaveIntent = new Intent(this, SaveExercise.class);
+        Intent SaveIntent = new Intent(this, Diary.class);
         startActivity(SaveIntent);
     }
 // this idea came from (https://stackoverflow.com/questions/9406523/android-want-app-to-perform-tasks-every-second)
