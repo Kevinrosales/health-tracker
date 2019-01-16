@@ -7,13 +7,13 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity
 public class Exercise {
     @PrimaryKey
-    public int exid;
+    public long exid;
 
     @ColumnInfo(name = "title")
     public String title;
 
     @ColumnInfo(name = "quantity")
-    public int quantity;
+    public String quantity;
 
     @ColumnInfo(name = "description")
     public String description;

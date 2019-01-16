@@ -3,7 +3,7 @@ package com.example.kevin.health_tracker;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SaveExercise extends AppCompatActivity {
+public class Diary extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
