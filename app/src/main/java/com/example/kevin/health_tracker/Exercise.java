@@ -2,6 +2,7 @@ package com.example.kevin.health_tracker;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -21,6 +22,7 @@ public class Exercise {
     @ColumnInfo(name = "timeStamp")
     public String timeStamp;
 
+    @Ignore
     public Exercise(String title, String quantity, String description, String timeStamp) {
         this.title = title;
         this.quantity = quantity;
