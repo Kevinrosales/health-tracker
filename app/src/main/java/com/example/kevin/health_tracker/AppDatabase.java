@@ -5,5 +5,5 @@ import android.arch.persistence.room.RoomDatabase;
 
 @Database(entities = {Exercise.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
-    public abstract ExerciseDao exercise();
+    public abstract ExerciseDao exerciseDao();
 }

@@ -6,7 +6,7 @@ import android.arch.persistence.room.PrimaryKey;
 
 @Entity
 public class Exercise {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public long exid;
 
     @ColumnInfo(name = "title")
@@ -20,4 +20,17 @@ public class Exercise {
 
     @ColumnInfo(name = "timeStamp")
     public String timeStamp;
+
+    public Exercise(String title, String quantity, String description, String timeStamp) {
+        this.title = title;
+        this.quantity = quantity;
+        this.description = description;
+        this.timeStamp = timeStamp;
+    }
+
+    public Exercise() {}
+
+    public String toString() {
+        return "Exercise: " + title + ", Quantity: " + quantity + ", Description: " + description + ", Time Stamp: " + timeStamp;
+    }
 }

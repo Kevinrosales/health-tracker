@@ -12,13 +12,10 @@ public interface ExerciseDao {
     @Query("SELECT * FROM exercise")
     List<Exercise> getAll();
 
-    @Query("SELECT * FROM exercise WHERE exid IN (:exerciseIDs)")
-    List<Exercise> loadAllByIds(int[] exerciseIDs);
-
     @Insert
-    void insertAll(Exercise... users);
+    void insertAll(Exercise... exercise);
 
     @Delete
-    void delete(Exercise user);
+    void delete(Exercise exercise);
 
 }
