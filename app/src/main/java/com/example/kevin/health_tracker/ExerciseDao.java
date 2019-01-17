@@ -1,9 +1,9 @@
 package com.example.kevin.health_tracker;
 
-import android.arch.persistence.room.Dao;
-import android.arch.persistence.room.Delete;
-import android.arch.persistence.room.Insert;
-import android.arch.persistence.room.Query;
+import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Insert;
+import androidx.room.Query;
 
 import java.util.List;
 
@@ -12,13 +12,10 @@ public interface ExerciseDao {
     @Query("SELECT * FROM exercise")
     List<Exercise> getAll();
 
-    @Query("SELECT * FROM exercise WHERE exid IN (:exerciseIDs)")
-    List<Exercise> loadAllByIds(int[] exerciseIDs);
-
     @Insert
-    void insertAll(Exercise... users);
+    void insertAll(Exercise... exercise);
 
     @Delete
-    void delete(Exercise user);
+    void delete(Exercise exercise);
 
 }

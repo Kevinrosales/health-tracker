@@ -1,12 +1,12 @@
 package com.example.kevin.health_tracker;
 
-import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity
 public class Exercise {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public long exid;
 
     @ColumnInfo(name = "title")
@@ -20,4 +20,17 @@ public class Exercise {
 
     @ColumnInfo(name = "timeStamp")
     public String timeStamp;
+
+    public Exercise(String title, String quantity, String description, String timeStamp) {
+        this.title = title;
+        this.quantity = quantity;
+        this.description = description;
+        this.timeStamp = timeStamp;
+    }
+
+    public Exercise() {}
+
+    public String toString() {
+        return "Exercise: " + title + ", Quantity: " + quantity + ", Description: " + description + ", Time Stamp: " + timeStamp;
+    }
 }
