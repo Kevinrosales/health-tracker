@@ -14,42 +14,40 @@ import java.util.List;
 public class Diary extends AppCompatActivity {
 
     AppDatabase db;
-    ListView DiaryNotes;
-
+    ListView exerciseEntry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_save_exercise);
-        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
-                AppDatabase.class, "exercise").build();
-//        displayExercises();
+        db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "exercise").allowMainThreadQueries().fallbackToDestructiveMigration().build();
+        displayExercises();
+    }
+// I worked with Amy and Sooz with some help from nick Crain as well
+    public void displayExercises() {
+        List<Exercise> exercises = db.exerciseDao().getAll();
+//        exerciseEntry = findViewById(R.id.exerciseEntrys);
+        ArrayAdapter<Exercise> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, db.exerciseDao().getAll());
+        exerciseEntry = findViewById(R.id.exerciseEntrys);
+        exerciseEntry.setAdapter(arrayAdapter);
     }
 
-//    public void displayExercises() {
-//        List<Exercise> exercises = db.exerciseDao().getAll();
-//        DiaryNotes = findViewById(R.id.exerciseEntrys);
-//        ArrayAdapter<Exercise> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, exercises);
-//        DiaryNotes.setAdapter(arrayAdapter);
-//    }
-//
-//    public void recordExercise(View v){
-//        EditText titleInput = findViewById(R.id.addTitle);
-//        String title = titleInput.getText().toString();
-//
-//        EditText quantityInput = findViewById(R.id.addQuantity);
-//        String quantity = quantityInput.getText().toString();
-//
-//        EditText descriptionInput = findViewById(R.id.addDescription);
-//        String description = descriptionInput.getText().toString();
-//
-//        EditText timeInput = findViewById(R.id.addTimeStamp);
-//        String timeStamp = timeInput.getText().toString();
-//
-//        Exercise recordedExercise = new Exercise(title, quantity, description, timeStamp);
-//        db.exerciseDao().insertAll(recordedExercise);
-//        finish();
-//        startActivity(getIntent());
-//    }
+    public void recordExercise(View v){
+        EditText titleInput = findViewById(R.id.addTitle);
+        String title = titleInput.getText().toString();
+
+        EditText quantityInput = findViewById(R.id.addQuantity);
+        String quantity = quantityInput.getText().toString();
+
+        EditText descriptionInput = findViewById(R.id.addDescription);
+        String description = descriptionInput.getText().toString();
+
+        EditText timeInput = findViewById(R.id.addTimeStamp);
+        String timeStamp = timeInput.getText().toString();
+
+        Exercise recordedExercise = new Exercise(title, quantity, description, timeStamp);
+        db.exerciseDao().insertAll(recordedExercise);
+        startActivity(getIntent());
+    }
 
 }

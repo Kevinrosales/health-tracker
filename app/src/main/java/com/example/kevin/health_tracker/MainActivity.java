@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         notification = findViewById(R.id.notification);
         createNotificationChannel();
 
-
     }
 
     public void addToCounterOnClick(View v) {
