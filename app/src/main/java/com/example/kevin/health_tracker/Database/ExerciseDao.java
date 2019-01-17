@@ -1,4 +1,6 @@
-package com.example.kevin.health_tracker;
+package com.example.kevin.health_tracker.Database;
+
+import com.example.kevin.health_tracker.Exercise;
 
 import androidx.room.Dao;
 import androidx.room.Delete;

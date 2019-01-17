@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.example.kevin.health_tracker.Database.AppDatabase;
+
 import java.util.List;
 
 public class Diary extends AppCompatActivity {
