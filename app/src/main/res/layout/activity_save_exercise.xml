@@ -45,19 +45,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addQuantity" />
 
-    <EditText
-        android:id="@+id/addTimeStamp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Time stamp "
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addDescription" />
-
     <ListView
         android:id="@+id/exerciseEntrys"
         android:layout_width="395dp"
@@ -78,6 +65,6 @@
         android:onClick="recordExercise"
         android:text="Save"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addTimeStamp" />
+        app:layout_constraintTop_toBottomOf="@+id/addDescription" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
