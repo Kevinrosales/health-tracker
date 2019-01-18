@@ -11,6 +11,9 @@ import android.widget.ListView;
 
 import com.example.kevin.health_tracker.Database.AppDatabase;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class Diary extends AppCompatActivity {
@@ -33,7 +36,7 @@ public class Diary extends AppCompatActivity {
         exerciseEntry = findViewById(R.id.exerciseEntrys);
         exerciseEntry.setAdapter(arrayAdapter);
     }
-
+// Darin Helped me figure out how to get it to actually time stamp instead of being another text entry
     public void recordExercise(View v){
         EditText titleInput = findViewById(R.id.addTitle);
         String title = titleInput.getText().toString();
@@ -44,8 +47,10 @@ public class Diary extends AppCompatActivity {
         EditText descriptionInput = findViewById(R.id.addDescription);
         String description = descriptionInput.getText().toString();
 
-        EditText timeInput = findViewById(R.id.addTimeStamp);
-        String timeStamp = timeInput.getText().toString();
+        Date date = new Date();
+        String stampTime = "hh:mm:ss a";
+        DateFormat dateFormat = new SimpleDateFormat(stampTime);
+        String timeStamp = dateFormat.format(date);
 
         Exercise recordedExercise = new Exercise(title, quantity, description, timeStamp);
         db.exerciseDao().insertAll(recordedExercise);
