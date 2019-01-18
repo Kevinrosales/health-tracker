@@ -27,6 +27,6 @@ database
 
 
 ## Resources 
-[Android fundamentals](https://developer.android.com/guide/components/fundamentals)
-[Android UI](https://developer.android.com/guide/topics/ui/)
-[Android Database](https://developer.android.com/topic/libraries/architecture/room)
+* [Android fundamentals](https://developer.android.com/guide/components/fundamentals)
+* [Android UI](https://developer.android.com/guide/topics/ui/)
+* [Android Database](https://developer.android.com/topic/libraries/architecture/room)
