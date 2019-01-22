@@ -36,6 +36,7 @@ public class Diary extends AppCompatActivity {
         exerciseEntry = findViewById(R.id.exerciseEntrys);
         exerciseEntry.setAdapter(arrayAdapter);
     }
+
 // Darin Helped me figure out how to get it to actually time stamp instead of being another text entry
     public void recordExercise(View v){
         EditText titleInput = findViewById(R.id.addTitle);
