@@ -23,7 +23,9 @@ import com.example.kevin.health_tracker.Database.AppDatabase;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Diary extends AppCompatActivity {
 
@@ -38,10 +40,10 @@ public class Diary extends AppCompatActivity {
         displayExercises();
         getBackendData();
     }
+
 // I worked with Amy and Sooz with some help from nick Crain as well
     public void displayExercises() {
         List<Exercise> exercises = db.exerciseDao().getAll();
-//        exerciseEntry = findViewById(R.id.exerciseEntrys);
         ArrayAdapter<Exercise> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, db.exerciseDao().getAll());
         exerciseEntry = findViewById(R.id.exerciseEntrys);
         exerciseEntry.setAdapter(arrayAdapter);
@@ -65,11 +67,14 @@ public class Diary extends AppCompatActivity {
 
         Exercise recordedExercise = new Exercise(title, quantity, description, timeStamp);
         db.exerciseDao().insertAll(recordedExercise);
+
+        postBackendData(title, quantity, description);
+
         startActivity(getIntent());
     }
 
 //////////////////////////////backend server things////////////////////////////////
-// got this code from ()
+// got this code from (https://developer.android.com/training/volley/simple#java)
     public void getBackendData() {
 
 // Instantiate the RequestQueue.
@@ -97,5 +102,42 @@ public class Diary extends AppCompatActivity {
 // Add the request to the RequestQueue.
         queue.add(stringRequest);
     }
+
+    public void postBackendData(final String title, final String quantity, final String description) {
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url ="https://kevin-health-tracker.herokuapp.com/exercises";
+
+        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        // Response
+                        Log.d("Response", response);
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // Error
+                        Log.d("Error.Response", "It didn't work");
+                    }
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams()
+            {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("title", title);
+                params.put("quantity", quantity);
+                params.put("description", description);
+
+                return params;
+            }
+        };
+        queue.add(postRequest);
+    }
+
 
 }
