@@ -1,6 +1,6 @@
 # Health Tracker
-Our First Android App.
-## [Go to back end server](https://github.com/Kevinrosales/health-tracker-backend)
+Our First Android App:
+[Go to back end server](https://github.com/Kevinrosales/health-tracker-backend)
 ### lab 26 
 For lab 26 we where tasked with creating our first android app that included a click counter that 
 would track when you would click a button, a stopwatch, and an image Carousel.
