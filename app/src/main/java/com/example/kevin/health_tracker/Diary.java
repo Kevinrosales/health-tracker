@@ -74,6 +74,7 @@ public class Diary extends AppCompatActivity {
     }
 
 //////////////////////////////backend server things////////////////////////////////
+
 // got this code from (https://developer.android.com/training/volley/simple#java)
     public void getBackendData() {
 
@@ -103,6 +104,7 @@ public class Diary extends AppCompatActivity {
         queue.add(stringRequest);
     }
 
+// Got this code from (http://www.itsalif.info/content/android-volley-tutorial-http-get-post-put)
     public void postBackendData(final String title, final String quantity, final String description) {
         RequestQueue queue = Volley.newRequestQueue(this);
         String url ="https://kevin-health-tracker.herokuapp.com/exercises";

@@ -16,7 +16,9 @@ For lab 29 we where tasked with creating
  For lab 32 we where tasked with finishing lab 28. The features we had to add where to add a working
 database, display the entry's from the database, and last was to be able to add things to the 
 database
-
+### lab 33
+For lab 33 we where tasked with creating a backend spring app and make methods to be able to Get 
+data and post data to and from the back end server and have it display on our health tracker.
 ## Images 
 
 ### lab 26
@@ -25,8 +27,14 @@ database
 ### lab 28
 ![lab 28](ScreenShot/DBworking.PNG)
 
+### lab 32
+![lab 33](ScreenShot/herokuDB.PNG)
+
 
 ## Resources 
 * [Android fundamentals](https://developer.android.com/guide/components/fundamentals)
 * [Android UI](https://developer.android.com/guide/topics/ui/)
 * [Android Database](https://developer.android.com/topic/libraries/architecture/room)
+* [Android volley](https://developer.android.com/training/volley/simple#java)
+* [Android GET & POST](http://www.itsalif.info/content/android-volley-tutorial-http-get-post-put)
+
