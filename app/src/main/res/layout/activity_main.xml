@@ -7,14 +7,14 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addOneButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:onClick="addToCounterOnClick"
-        android:text="Add One"
+        android:text="@string/addOneButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,9 +25,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="16dp"
-        android:text="0"
+        android:text="@string/counter"
         android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/addOneButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -40,7 +40,7 @@
         android:layout_marginRight="68dp"
         android:layout_marginBottom="8dp"
         android:onClick="takeMeAwayBreakMeAway"
-        android:text="Go To Stopwatch"
+        android:text="@string/goToStopwatch"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.699"
@@ -54,9 +54,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:onClick="sendNotification"
-        android:text="send notification "
+        android:text="@string/notification"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/addOneButton" />
 
     <Button
         android:id="@+id/goToSave"
@@ -68,7 +68,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:onClick="takeMeToSaveExercise"
-        android:text="Go To Exercise"
+        android:text="@string/goToSave"
         app:layout_constraintBottom_toTopOf="@+id/goToStopwatch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
