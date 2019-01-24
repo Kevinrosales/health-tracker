@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">health-tracker</string>
+    <string name="addOneButton">Add One</string>
+    <string name="counter">0</string>
+    <string name="notification">send notification </string>
+    <string name="goToSave">Go To Exercise</string>
+    <string name="goToStopwatch">Go To Stopwatch</string>
+    <string name="addTitle">Title</string>
+    <string name="addQuantity">Quantity</string>
+    <string name="addDescription">Description</string>
+    <string name="Save">Save</string>
+    <string name="reset">reset</string>
+    <string name="StopwatchTime">00:00:00</string>
+    <string name="startStop">Start</string>
 </resources>
